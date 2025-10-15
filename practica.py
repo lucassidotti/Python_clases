@@ -454,15 +454,31 @@
 
 #Adivina un numero
 
-import random
-secreto=random.randint(1,10)
-tiro=None
-intento=0
-while tiro !=secreto or intento<=3:
-    intento+=1
-    tiro=int(input('adivina un numero de 1 a 10 '))
-    if tiro < secreto:
-        print('Su numero es demasiado bajo')
-    elif tiro > secreto:
-        print('Su numero es demasiado alto')
-print(tiro, 'es igual a ',secreto)
+#import random
+#secreto=random.randint(1,10)
+#tiro=None
+#intento=0
+#while tiro !=secreto or intento<=3:
+#    intento+=1
+#    tiro=int(input('adivina un numero de 1 a 10 '))
+#    if tiro < secreto:
+#        print('Su numero es demasiado bajo')
+#    elif tiro > secreto:
+#        print('Su numero es demasiado alto')
+#print(tiro, 'es igual a ',secreto)
+
+def saludar():
+        print('Hola mundo')
+saludar()
+
+def sumar(a,b):
+        resultado=a+b
+        return(resultado)
+print('La suma de los valores es', sumar(2,3))
+
+#valores defecto
+
+def perfil(nombre,saludo='Hola'):
+        print(f"{saludo}, soy {nombre}")
+perfil('Lucas')
+perfil('Gianna','Hello')
