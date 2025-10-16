@@ -507,3 +507,29 @@ precio1=cal_iva(200)
 precio2=cal_iva(800)
 total_c_iva=(precio1+precio2)
 print(total_c_iva)
+
+#funciones print y return
+
+def compra_des(importe,descuento):
+    descuentos= importe*(descuento/100)
+    total=importe-descuentos
+    print(f"El producto queda con descuento a este precio: ${total} y el descuento que te otorgo Visa es de: ${descuentos}")
+    return total
+compra_des(1500,15)
+
+# Return con varias variables
+def operaciones(a,b):
+    sum=a+b
+    resta=a-b
+    producto=a*b
+    division=a//b
+    return sum,resta,producto,division
+x,w,y,z=operaciones(10,5)
+print(f"Suma es: {x},Resta es: {w},Producto es: {y}, Division es: {z}")
+
+def datos_alumno(apellido,nota):
+    aprobado=nota>=70
+    return apellido,nota,aprobado
+apellido,nota,estado=datos_alumno('Sidotti',45)
+
+print(apellido,"-",'aprobado' if estado else 'desaprobado')
