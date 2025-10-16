@@ -467,18 +467,43 @@
 #        print('Su numero es demasiado alto')
 #print(tiro, 'es igual a ',secreto)
 
-def saludar():
-        print('Hola mundo')
-saludar()
+#def saludar():
+#        print('Hola mundo')
+#saludar()
 
-def sumar(a,b):
-        resultado=a+b
-        return(resultado)
-print('La suma de los valores es', sumar(2,3))
+#def sumar(a,b):
+#        resultado=a+b
+#        return(resultado)
+#print('La suma de los valores es', sumar(2,3))
 
 #valores defecto
 
-def perfil(nombre,saludo='Hola'):
-        print(f"{saludo}, soy {nombre}")
-perfil('Lucas')
-perfil('Gianna','Hello')
+#def perfil(nombre,saludo='Hola'):
+#        print(f"{saludo}, soy {nombre}")
+#perfil('Lucas')
+#perfil('Gianna','Hello')
+
+#Funciones combinan acciones y retornos
+
+def promedios(n1,n2,n3):
+    promedio=round((n1+n2+n3)/3 ,2)
+    return promedio
+print('El promedio del resultado es: ',promedios(1,5,7))
+
+#Funcion con return y sin, en la misma 
+#Sin
+def calcular_iva(precio):
+    precio_total=round(precio * 1.21 ,2)
+    print(f"El precio final del producto es: ${precio_total}")
+calcular_iva(45)
+
+#Con
+def cal_iva(p):
+    p_total=round(p * 1.21 ,2)
+    return p_total
+print(f"El precio final es: ${cal_iva(100)}")
+
+precio1=cal_iva(200)
+precio2=cal_iva(800)
+total_c_iva=(precio1+precio2)
+print(total_c_iva)
