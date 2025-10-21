@@ -518,18 +518,87 @@ def compra_des(importe,descuento):
 compra_des(1500,15)
 
 # Return con varias variables
-def operaciones(a,b):
-    sum=a+b
-    resta=a-b
-    producto=a*b
-    division=a//b
-    return sum,resta,producto,division
-x,w,y,z=operaciones(10,5)
-print(f"Suma es: {x},Resta es: {w},Producto es: {y}, Division es: {z}")
+#def operaciones(a,b):
+#    sum=a+b
+#    resta=a-b
+#    producto=a*b
+#    division=a//b
+#    return sum,resta,producto,division
+#x,w,y,z=operaciones(10,5)
+#print(f"Suma es: {x},Resta es: {w},Producto es: {y}, Division es: {z}")
 
-def datos_alumno(apellido,nota):
-    aprobado=nota>=70
-    return apellido,nota,aprobado
-apellido,nota,estado=datos_alumno('Sidotti',45)
+#def datos_alumno(apellido,nota):
+#    if nota >=70:
+#        print(f"{apellido} esta aprobado con: {nota}")
+#    else:
+#        print(f"{apellido} desaprobo con: {nota}")
 
-print(apellido,"-",'aprobado' if estado else 'desaprobado')
+#datos_alumno("Sidotti",70)
+#datos_alumno("Pepe",45)
+
+def datos_alumnos(nombre,nota):
+    if nota>=70:
+        condicion='Aprobado'
+    else: condicion='Desaprobado'
+    return{
+        'nombre':nombre,
+        'nota':nota,
+        'estado':condicion,
+    }
+alumno=datos_alumnos('Sidotti',75)
+print(alumno)
+print(f"{alumno['nombre']} - {alumno['nota']} - {alumno['estado']}")
+
+def conver_moneda(pesos,dolar=1000):
+    cambio_dolar=pesos/dolar
+    cambio_euro=pesos/(dolar*1.10)
+    return cambio_dolar, cambio_euro
+usd,eur=conver_moneda(20000)
+print(f"Son {usd} dolares, y {eur} euros")
+
+#funciones lambda, funciones anonimas. funciones sin nombre
+# simples de poco codigo
+#sintaxis es lambda argumento: expresion
+
+double=lambda x:x*2
+
+print(double(2))
+
+adicion=lambda a,b:a+b
+print(adicion(10,4))
+
+mayor=lambda a,b: a if a>b else b
+
+print(mayor(8,5))
+
+#lambda sin argumentos
+
+hi=lambda: 'Hola a todos'
+print(hi())
+
+#map() va a aplicar la funcion a cada elemento
+
+numeros=[1,2,3,4]
+
+doble=list(map(lambda x:x*2,numeros))
+print(doble)
+
+#filter filtra elementos que cumplen con una condicion
+
+numeros1=[1,2,3,4,5]
+pares=list(filter(lambda x:x%2==0,numeros1))
+print(pares)
+
+#sorted ordenar de acurdo a un criterio
+
+persons=[('Carlos',104),('Roberto',98),('Lucas',31),('Agustin',48)]
+personas_ordenadas=sorted(persons,key=lambda x:x[1])
+print(personas_ordenadas)
+
+#Docstring dentro de la funcion da una explicacion de lo que hace
+
+def saludo(name):
+    """ Saludar con un nombre """
+    return 'Hola '+ name
+print(saludo('Lucas'))
+print(saludo.__doc__)
