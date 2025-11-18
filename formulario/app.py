@@ -5,7 +5,7 @@ def inicio():
     return render_template("index.html")
 #Formulario
 
-@app.route('/form',methods=["post"])
+@app.route('/enviar',methods=["post"])
 def enviar():
     nombre=request.form['nombre']
     edad=request.form['edad']
