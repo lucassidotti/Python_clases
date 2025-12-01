@@ -13,12 +13,13 @@ def get_db():
 with get_db() as db:
     db.execute("""
                CREATE TABLE IF NOT EXISTS estudiantes(
-               id INTEGER PRYMARY KEY AUTOINCREMENT,
-               nombre TEXT NOT null,
-               apellido TEXT NOT null,
-               edad INTEGER NOT null,
-               grado TEXT NOT null
-""")
+               id INTEGER PRIMARY KEY AUTOINCREMENT,
+               nombre TEXT NOT NULL,
+               apellido TEXT NOT NULL,
+               edad INTEGER NOT NULL,
+               grado TEXT NOT NULL
+               );
+            """)
 
 
 @app.route("/")
@@ -35,7 +36,7 @@ def agregar():
         grado = request.form["grado"]
         db = get_db()
         db.execute(
-            "INSERT INTO estudiantes(nombre,apellido,edad,grado) VALUES (????)",
+            "INSERT INTO estudiantes(nombre,apellido,edad,grado) VALUES (?,?,?,?)",
             (nombre, apellido, edad, grado),
         )
         db.commit()
